@@ -19,5 +19,5 @@ gulp.task('test', function () {
 gulp.task('default', ['lint', 'test']);
 
 gulp.task('watch', function () {
-    gulp.watch(files, ['lint', 'test']);
+    gulp.watch(files, ['test']);
 });

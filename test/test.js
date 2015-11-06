@@ -15,10 +15,9 @@ var test = function (input, output, opts, done) {
 
 describe('postcss-this-namespace', function () {
 
-    /* Write tests here
 
-    it('does something', function (done) {
-        test('a{ }', 'a{ }', { }, done);
-    });*/
+    it('adds .THIS to each class', function (done) {
+        test('.a{ }', '.THIS .a{ }', { }, done);
+    });
 
 });

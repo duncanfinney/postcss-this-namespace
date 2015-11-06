@@ -1,13 +1,21 @@
 var postcss = require('postcss');
 
-module.exports = postcss.plugin('postcss-this-namespace', function (opts) {
-    opts = opts || {};
+module.exports = postcss.plugin('postcss-this-namespace', function () {
 
-    // Work with options here
+    return function (root) {
 
-    return function (css, result) {
+        //console.log(util.inspect(css));
+        root.walkRules(function(rule) {
+            if (!rule.selectors) {
+                return rule;
+            }
 
-        // Transform CSS AST here
+            rule.selectors = rule.selectors.map(function(selector) {
+              return '.THIS ' + selector;
+            });
+
+            //console.log(rule.selectors);
+        })
 
     };
 });
